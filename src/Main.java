@@ -11,7 +11,7 @@ import aima.core.search.csp.SolutionStrategy;
 import aima.core.search.csp.Variable;
 
 public class Main {
-
+	
 	private static CSP setupCSP() {
 		CSP csp = null;
 		// TODO the english and spenijard live in different houses
@@ -76,6 +76,8 @@ public class Main {
 		Variable snails = new Variable("Snails");
 		Variable horse = new Variable("Horse");
 		
+
+
 		List<Variable> variables = new LinkedList<Variable>();
 		// TODO add all your variables to this list, e.g.,
 		// variables.add(var1);
@@ -120,8 +122,17 @@ public class Main {
 		// csp.setDomain(var2, d2);
 
 		Domain d1 = new Domain(new Integer[]{1, 2, 3, 4, 5});
+		Domain norwegianDomain = new Domain(new Integer[]{1});
+		Domain milkDomain = new Domain(new Integer[]{3});
 		for(Variable var: variables){
-			csp.setDomain(var, d1);
+			if(var == norwegian){
+				csp.setDomain(var, norwegianDomain);
+			}else if(var == milk){
+				csp.setDomain(var, milkDomain);
+			}else{
+				csp.setDomain(var, d1);
+			}
+			
 		}
 		
 
@@ -131,7 +142,31 @@ public class Main {
 		// csp.addConstraint(new EqualConstraint(var1, var2)); // meaning var1 == var2
 		// csp.addConstraint(new SuccessorConstraint(var1, var2)); // meaning var1 == var2 + 1
 		// csp.addConstraint(new DifferByOneConstraint(var1, var2)); // meaning var1 == var2 + 1 or var1 == var2 - 1 
+		for(int k = 0; k<25; k = k + 5){
+			for (int i = k; i < k+5; i++){
+				for (int j = i + 1; j < k+5; j++){
+					csp.addConstraint(new NotEqualConstraint(variables.get(i), variables.get(j)));
+				}
+			}
+		}
+
+		csp.addConstraint(new EqualConstraint(englishman, red));
+		csp.addConstraint(new EqualConstraint(spaniard, dog));
+		csp.addConstraint(new EqualConstraint(coffee, green));
+		csp.addConstraint(new EqualConstraint(ukrainian, tea));
+
+		csp.addConstraint(new SuccessorConstraint(green, ivory));
+		csp.addConstraint(new EqualConstraint(oldGold, snails));
+		csp.addConstraint(new EqualConstraint(kools, yellow));
 		
+		//csp.addConstraint(new EqualConstraint(milk, 3)); //TODO middle house = 3
+		//csp.addConstraint(new EqualConstraint(norwegian, 1)); //TODO first house = 1
+
+		csp.addConstraint(new DifferByOneConstraint(chesterfields, fox));
+		csp.addConstraint(new DifferByOneConstraint(kools, horse));
+		csp.addConstraint(new EqualConstraint(luckyStrike, orangeJuice));
+		csp.addConstraint(new EqualConstraint(japanese, parliaments));
+		csp.addConstraint(new DifferByOneConstraint(norwegian, blue));
 
 
 
@@ -139,6 +174,7 @@ public class Main {
 	}
 
 	private static void printSolution(Assignment solution) {
+		//System.out.println("The " + solution.getAssignment(water) + " drinks water and the " + solution.getAssignment(zebra) + "owns the zebra.");
 		// TODO print out useful answer
 		// You can use the following to get the value assigned to a variable:
 		// Object value = solution.getAssignment(var); 

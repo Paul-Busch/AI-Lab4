@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.List;
 
 import aima.core.search.csp.Assignment;
@@ -53,17 +54,40 @@ public class Main {
 
 
 		
-		List<Variable> variables = null;
+		List<Variable> variables = new LinkedList<Variable>();
 		// TODO add all your variables to this list, e.g.,
 		// variables.add(var1);
 		// variables.add(var2);
 		
-		variables.add(color);
-		variables.add(nation);
-		variables.add(cigarette);
-		variables.add(drink);
-		variables.add(pet);
+		variables.add(red);
+		variables.add(green);
+		variables.add(ivory);
+		variables.add(yellow);
+		variables.add(blue);
+
+		variables.add(englishman);
+		variables.add(spaniard);
+		variables.add(norwegian);
+		variables.add(ukrainian);
+		variables.add(japanese);
+
+		variables.add(oldGold);
+		variables.add(kools);
+		variables.add(chesterfields);
+		variables.add(luckyStrike);
+		variables.add(parliaments);
+
+		variables.add(water);
+		variables.add(orangeJuice);
+		variables.add(tea);
+		variables.add(coffee);
+		variables.add(milk);
 		
+		variables.add(zebra);
+		variables.add(dog);
+		variables.add(fox);
+		variables.add(snail);
+		variables.add(horse);
 		
 		csp = new CSP(variables);
 
@@ -73,20 +97,12 @@ public class Main {
 		// Domain d2 = new Domain(new Integer[]{1, 2});
 		// csp.setDomain(var2, d2);
 
-		Domain d1 = new Domain(colors);
-		csp.setDomain(color, d1);
+		Domain d1 = new Domain(new Integer[]{1, 2, 3, 4, 5});
+		for(Variable var: variables){
+			csp.setDomain(var, d1);
+		}
+		
 
-		Domain d2 = new Domain(nations);
-		csp.setDomain(nation, d2);
-
-		Domain d3 = new Domain(cigarettes);
-		csp.setDomain(cigarette, d3);
-
-		Domain d4 = new Domain(drinks);
-		csp.setDomain(drink, d4);
-
-		Domain d5 = new Domain(pets);
-		csp.setDomain(pet, d5);
 
 		// TODO add constraints, e.g.,
 		// csp.addConstraint(new NotEqualConstraint(var1, var2)); // meaning var1 != var2
@@ -95,10 +111,6 @@ public class Main {
 		// csp.addConstraint(new DifferByOneConstraint(var1, var2)); // meaning var1 == var2 + 1 or var1 == var2 - 1 
 		
 
-		//csp.addConstraint(new NotEqualConstraint(var1, var2)); // meaning var1 != var2
-		//csp.addConstraint(new EqualConstraint(var1, var2)); // meaning var1 == var2
-
-		csp.addConstraint(new EqualConstraint(color, nation)); // meaning var1 == var2
 
 
 		return csp;

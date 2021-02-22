@@ -108,7 +108,7 @@ public class Main {
 		variables.add(zebra);
 		variables.add(dog);
 		variables.add(fox);
-		variables.add(snail);
+		variables.add(snails);
 		variables.add(horse);
 		
 		csp = new CSP(variables);

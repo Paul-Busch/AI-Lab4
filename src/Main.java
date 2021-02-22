@@ -13,6 +13,8 @@ public class Main {
 
 	private static CSP setupCSP() {
 		CSP csp = null;
+		// TODO the english and spenijard live in different houses
+
 //		In five houses, each with a different color, live five persons of different nationality,
 //		each of whom prefers a different brand of cigarettes, a different drink, and a different pet.
 //		The five houses are arranged in a row (no house has more than 2 neighbors).   
@@ -36,23 +38,26 @@ public class Main {
 		String[] colors = {"Red", "Green", "Ivory", "Yellow", "Blue"};
 		String[] nations = {"Englishman", "Spaniard", "Norwegian", "Ukrainian", "Japanese"};
 		String[] cigarettes = {"Old Gold", "Kools", "Chesterfields", "Lucky Strike", "Parliaments"};
-		String[] drinks = {"Water", "Orange juice", "Tea", "Coffee", "Milk"};
-		String[] pets = {"Zebra", "Dog", "Fox", "Snails", "Horse"};
+		String[] drink = {"Water", "Orange juice", "Tea", "Coffee", "Milk"};
+		String[] pet = {"Zebra", "Dog", "Fox", "Snails", "Horse"};
 		
 		// TODO create variables, e.g.,
 		// Variable var1 = new Variable("name of the variable 1");
 		// Variable var2 = new Variable("name of the variable 2");
-		Variable color = new Variable("Color");
-		Variable nation = new Variable("Nation");
-		Variable cigarette = new Variable("Cigarette");
-		Variable drink = new Variable("Drink");
-		Variable pet = new Variable("Pet");
+		
+		Variable red = new Variable("red");
+		Variable green = new Variable("green");
+		Variable ivory = new Variable("ivory");
+		Variable yellow = new Variable("yello");
+		Variable blue = new Variable("blue");
+
 
 		
 		List<Variable> variables = null;
 		// TODO add all your variables to this list, e.g.,
 		// variables.add(var1);
 		// variables.add(var2);
+		
 		variables.add(color);
 		variables.add(nation);
 		variables.add(cigarette);
@@ -89,6 +94,13 @@ public class Main {
 		// csp.addConstraint(new SuccessorConstraint(var1, var2)); // meaning var1 == var2 + 1
 		// csp.addConstraint(new DifferByOneConstraint(var1, var2)); // meaning var1 == var2 + 1 or var1 == var2 - 1 
 		
+
+		//csp.addConstraint(new NotEqualConstraint(var1, var2)); // meaning var1 != var2
+		//csp.addConstraint(new EqualConstraint(var1, var2)); // meaning var1 == var2
+
+		csp.addConstraint(new EqualConstraint(color, nation)); // meaning var1 == var2
+
+
 		return csp;
 	}
 

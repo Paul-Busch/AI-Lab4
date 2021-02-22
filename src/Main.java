@@ -48,10 +48,32 @@ public class Main {
 		Variable red = new Variable("red");
 		Variable green = new Variable("green");
 		Variable ivory = new Variable("ivory");
-		Variable yellow = new Variable("yello");
+		Variable yellow = new Variable("yellow");
 		Variable blue = new Variable("blue");
+		
+		Variable englishman = new Variable("Englishman");
+		Variable spaniard = new Variable("Spaniard");
+		Variable norwegian = new Variable("Norwegian");
+		Variable ukrainian = new Variable("Ukrainian");
+		Variable japanese = new Variable("Japanese");
 
+		Variable oldGold = new Variable("Old Gold");
+		Variable kools = new Variable("Kools");
+		Variable chesterfields = new Variable("chesterfields");
+		Variable luckyStrike = new Variable("Lucky Strike");
+		Variable parliaments = new Variable("Parliaments");
 
+		Variable water = new Variable("Water");
+		Variable orangeJuice = new Variable("Orange juice");
+		Variable tea = new Variable("Tea");
+		Variable coffee = new Variable("Coffee");
+		Variable milk = new Variable("Milk");
+
+		Variable zebra = new Variable("Zebra");
+		Variable dog = new Variable("Dog");
+		Variable fox = new Variable("Fox");
+		Variable snails = new Variable("Snails");
+		Variable horse = new Variable("Horse");
 		
 		List<Variable> variables = null;
 		// TODO add all your variables to this list, e.g.,

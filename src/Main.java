@@ -36,17 +36,29 @@ public class Main {
 		String[] colors = {"Red", "Green", "Ivory", "Yellow", "Blue"};
 		String[] nations = {"Englishman", "Spaniard", "Norwegian", "Ukrainian", "Japanese"};
 		String[] cigarettes = {"Old Gold", "Kools", "Chesterfields", "Lucky Strike", "Parliaments"};
-		String[] drink = {"Water", "Orange juice", "Tea", "Coffee", "Milk"};
-		String[] pet = {"Zebra", "Dog", "Fox", "Snails", "Horse"};
+		String[] drinks = {"Water", "Orange juice", "Tea", "Coffee", "Milk"};
+		String[] pets = {"Zebra", "Dog", "Fox", "Snails", "Horse"};
 		
 		// TODO create variables, e.g.,
 		// Variable var1 = new Variable("name of the variable 1");
 		// Variable var2 = new Variable("name of the variable 2");
+		Variable color = new Variable("Color");
+		Variable nation = new Variable("Nation");
+		Variable cigarette = new Variable("Cigarette");
+		Variable drink = new Variable("Drink");
+		Variable pet = new Variable("Pet");
+
 		
 		List<Variable> variables = null;
 		// TODO add all your variables to this list, e.g.,
 		// variables.add(var1);
 		// variables.add(var2);
+		variables.add(color);
+		variables.add(nation);
+		variables.add(cigarette);
+		variables.add(drink);
+		variables.add(pet);
+		
 		
 		csp = new CSP(variables);
 
@@ -55,7 +67,22 @@ public class Main {
 		// csp.setDomain(var1, d1);
 		// Domain d2 = new Domain(new Integer[]{1, 2});
 		// csp.setDomain(var2, d2);
-		
+
+		Domain d1 = new Domain(colors);
+		csp.setDomain(color, d1);
+
+		Domain d2 = new Domain(nations);
+		csp.setDomain(nation, d2);
+
+		Domain d3 = new Domain(cigarettes);
+		csp.setDomain(cigarette, d3);
+
+		Domain d4 = new Domain(drinks);
+		csp.setDomain(drink, d4);
+
+		Domain d5 = new Domain(pets);
+		csp.setDomain(pet, d5);
+
 		// TODO add constraints, e.g.,
 		// csp.addConstraint(new NotEqualConstraint(var1, var2)); // meaning var1 != var2
 		// csp.addConstraint(new EqualConstraint(var1, var2)); // meaning var1 == var2
